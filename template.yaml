@@ -16,6 +16,8 @@ Resources:
       Tracing: Active
       Policies:
         - AWSXrayWriteOnlyAccess
+      Layers:
+        - arn:aws:lambda:us-west-2:053662045684:layer:palindrome:7
 Parameters:
   StackTagName:
     Type: String

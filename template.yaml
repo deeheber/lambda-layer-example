@@ -17,7 +17,7 @@ Resources:
       Policies:
         - AWSXrayWriteOnlyAccess
       Layers:
-        - arn:aws:lambda:us-west-2:053662045684:layer:palindrome:7
+        - arn:aws:lambda:us-west-2:053662045684:layer:palindrome:8
 Parameters:
   StackTagName:
     Type: String

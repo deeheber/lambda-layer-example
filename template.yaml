@@ -17,7 +17,17 @@ Resources:
       Policies:
         - AWSXrayWriteOnlyAccess
       Layers:
-        - arn:aws:lambda:us-west-2:053662045684:layer:palindrome:8
+        - !Ref PalindromeLayer
+  PalindromeLayer:
+    Type: AWS::Serverless::LayerVersion
+    Properties:
+      Description: !Sub
+        - Stack ${StackTagName} Environment ${EnvironmentTagName} Layer ${ResourceName}
+        - ResourceName: PalindromeLayer
+      ContentUri: src/PalindromeLayer
+      RetentionPolicy: Delete
+    Metadata:
+      BuildMethod: nodejs12.x
 Parameters:
   StackTagName:
     Type: String

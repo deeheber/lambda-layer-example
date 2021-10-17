@@ -2,5 +2,7 @@
 .aws-sam
 .stackery
 
+samconfig.toml
+
 # dependencies
 node_modules

@@ -6,11 +6,11 @@ Resources:
     Properties:
       FunctionName: !Sub ${AWS::StackName}-Function
       Description: !Sub
-        - Stack ${StackTagName} Environment ${EnvironmentTagName} Function ${ResourceName}
+        - Stack ${AWS::StackName} Function ${ResourceName}
         - ResourceName: Function
       CodeUri: src/Function
       Handler: index.handler
-      Runtime: nodejs12.x
+      Runtime: nodejs14.x
       MemorySize: 3008
       Timeout: 30
       Tracing: Active
@@ -22,16 +22,9 @@ Resources:
     Type: AWS::Serverless::LayerVersion
     Properties:
       Description: !Sub
-        - Stack ${StackTagName} Environment ${EnvironmentTagName} Layer ${ResourceName}
+        - Stack ${AWS::StackName} Layer ${ResourceName}
         - ResourceName: PalindromeLayer
       ContentUri: src/PalindromeLayer
       RetentionPolicy: Delete
     Metadata:
-      BuildMethod: nodejs12.x
-Parameters:
-  StackTagName:
-    Type: String
-    Description: Stack Name (injected by Stackery at deployment time)
-  EnvironmentTagName:
-    Type: String
-    Description: Environment Name (injected by Stackery at deployment time)
+      BuildMethod: nodejs14.x

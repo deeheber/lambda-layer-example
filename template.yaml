@@ -10,7 +10,9 @@ Resources:
         - ResourceName: Function
       CodeUri: src/Function
       Handler: index.handler
-      Runtime: nodejs14.x
+      Runtime: nodejs18.x
+      Architectures:
+        - arm64
       MemorySize: 3008
       Timeout: 30
       Tracing: Active
@@ -27,4 +29,4 @@ Resources:
       ContentUri: src/PalindromeLayer
       RetentionPolicy: Delete
     Metadata:
-      BuildMethod: nodejs14.x
+      BuildMethod: nodejs18.x

@@ -10,7 +10,7 @@ Resources:
         - ResourceName: Function
       CodeUri: src/Function
       Handler: index.handler
-      Runtime: nodejs18.x
+      Runtime: nodejs20.x
       Architectures:
         - arm64
       MemorySize: 3008
@@ -26,7 +26,10 @@ Resources:
       Description: !Sub
         - Stack ${AWS::StackName} Layer ${ResourceName}
         - ResourceName: PalindromeLayer
+      CompatibleArchitectures:
+        - arm64
       ContentUri: src/PalindromeLayer
       RetentionPolicy: Delete
     Metadata:
-      BuildMethod: nodejs18.x
+      BuildMethod: nodejs20.x
+      BuildArchitecture: arm64
